@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="A refined black and gold daily task planner.">
+  <title>Gold Standard — Todo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="luxury-header">
+      <div class="brand-mark" aria-hidden="true">G</div>
+      <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+      <h1>The Daily Edit<span class="gold-period">.</span></h1>
+      <p class="subtitle">A little progress, every single day.</p>
+      <p id="current-date" class="current-date"></p>
+    </header>
+
+    <section class="dashboard" aria-label="Task progress">
+      <div class="dashboard-heading">
+        <div>
+          <p class="section-kicker">YOUR OVERVIEW</p>
+          <h2>Daily progress</h2>
+        </div>
+        <span id="progress-percent" class="progress-percent">0%</span>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-label">TOTAL TASKS</span>
+          <strong id="total-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">COMPLETED</span>
+          <strong id="completed-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">REMAINING</span>
+          <strong id="pending-count">0</strong>
+        </article>
+      </div>
+
+      <div
+        class="progress-track"
+        role="progressbar"
+        aria-label="Daily task completion"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        id="progress-track"
+      >
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <p id="progress-caption" class="progress-caption">
+        Your next accomplishment starts here.
+      </p>
+    </section>
+
+    <section class="task-section" aria-labelledby="task-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">MAKE IT HAPPEN</p>
+          <h2 id="task-heading">Your tasks</h2>
+        </div>
+      </div>
+
+      <form id="todo-form">
+        <label for="todo-input">ADD A NEW TASK</label>
+        <div class="input-row">
+          <input
+            id="todo-input"
+            type="text"
+            placeholder="What deserves your focus?"
+            maxlength="200"
+            autocomplete="off"
+            required
+          >
+          <button type="submit">+ Add task</button>
+        </div>
+      </form>
+
+      <div class="filter-row" aria-label="Filter tasks">
+        <button type="button" class="filter-button active"
+          data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-button"
+          data-filter="pending" aria-pressed="false">Pending</button>
+        <button type="button" class="filter-button"
+          data-filter="completed" aria-pressed="false">Completed</button>
+      </div>
+
+      <p id="status" role="status" aria-live="polite"></p>
+      <ul id="todo-list" aria-label="Todo tasks"></ul>
+    </section>
+
+    <footer class="app-footer">
+      <span class="footer-star" aria-hidden="true">✦</span>
+      <p>FOCUS ON WHAT MATTERS</p>
+      <span class="footer-star" aria-hidden="true">✦</span>
+    </footer>
+  </main>
+</body>
+</html>
